@@ -1,4 +1,4 @@
-type Player = 'X' | 'O' | null;
+type Player = 'X' | 'O' | 'Tie Game' | null;
 
 function Square({value, onClick, winner}:{
     winner: Player
@@ -7,10 +7,10 @@ function Square({value, onClick, winner}:{
 }){
     if(!value){
         return (
-            <button onClick={onClick} disabled={Boolean(winner)} />
+            <button className="square" onClick={onClick} disabled={Boolean(winner)} />
         )
     }
-    return <button disabled>{value}</button>
+    return <button className={`square square_${value.toLowerCase()}`} disabled>{value}</button>
 }
 
 export default Square
